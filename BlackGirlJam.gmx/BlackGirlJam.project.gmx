@@ -74,6 +74,7 @@
       <object>objects\oDialogue</object>
     </objects>
     <object>objects\mChar</object>
+    <object>objects\enemyChar</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
