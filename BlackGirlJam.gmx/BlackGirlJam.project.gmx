@@ -3,21 +3,39 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Smooth Dialogue Engine</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_blkscreen</sprite>
     <sprite>sprites\spr_collision</sprite>
     <sprite>sprites\spr_pointer</sprite>
+    <sprites name="Dialogue Sprites">
+      <sprite>sprites\sBlue</sprite>
+      <sprite>sprites\sShadow</sprite>
+      <sprite>sprites\sPink</sprite>
+      <sprite>sprites\sGreen</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_street</background>
+    <background>background\bGround</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_startMenu.gml</script>
-    <script>scripts\state_machine_init.gml</script>
+    <scripts name="State Machine Scripts">
+      <script>scripts\state_machine_init.gml</script>
+    </scripts>
+    <scripts name="Dialogue Scripts">
+      <script>scripts\dialogue.gml</script>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fntDialogue</font>
+    <font>fonts\fntInfo</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_startMenu</object>
     <objects name="Overall Game Controllers">
@@ -25,9 +43,17 @@
       <object>objects\obj_camera</object>
       <object>objects\obj_gameSystem</object>
     </objects>
+    <objects name="Dialogue Objects">
+      <object>objects\oControl</object>
+      <object>objects\oBlue</object>
+      <object>objects\oPink</object>
+      <object>objects\oGreen</object>
+      <object>objects\oDialogue</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
+    <room>rooms\rm_dialogueDemo</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
