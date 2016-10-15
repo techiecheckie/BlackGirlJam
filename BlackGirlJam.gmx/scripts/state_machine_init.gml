@@ -103,4 +103,3 @@ else
   state_timer++;
   state_new=false;
 }
-
