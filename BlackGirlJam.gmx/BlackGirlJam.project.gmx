@@ -53,6 +53,7 @@
     <scripts name="Dialogue Scripts">
       <script>scripts\dialogue.gml</script>
     </scripts>
+    <script>scripts\scr_uselessRN.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntDialogue</font>
@@ -72,6 +73,7 @@
       <object>objects\oGreen</object>
       <object>objects\oDialogue</object>
     </objects>
+    <object>objects\mChar</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
