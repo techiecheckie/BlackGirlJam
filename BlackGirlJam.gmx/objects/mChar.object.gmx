@@ -25,12 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set Near's global variables
+            <string>/// Set main character variables
 
 // The character's full name.
 global.fname = "Jada"
 global.mname = "Jazmin"
 global.lname = "Jones"
+
+// Maximum number of enemies
+global.maxEnemies = 4;
 
 // Print the character's name to the console upon char creation.
 show_debug_message(global.fname + " " + global.mname + " " + global.lname);
