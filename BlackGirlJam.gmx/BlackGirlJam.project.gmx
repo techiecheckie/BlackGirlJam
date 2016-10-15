@@ -31,6 +31,14 @@
       <sprite>sprites\sPink</sprite>
       <sprite>sprites\sGreen</sprite>
     </sprites>
+    <sprites name="Enemy Sprites">
+      <sprite>sprites\spr_enemy_idle_lt</sprite>
+      <sprite>sprites\spr_enemy_idle_rt</sprite>
+      <sprite>sprites\spr_enemy_hit_lt</sprite>
+      <sprite>sprites\spr_enemy_hit_rt</sprite>
+      <sprite>sprites\spr_enemy_atk_lt</sprite>
+      <sprite>sprites\spr_enemy_atk_rt</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_street</background>
