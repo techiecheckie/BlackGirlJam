@@ -11,6 +11,20 @@
     <sprite>sprites\spr_blkscreen</sprite>
     <sprite>sprites\spr_collision</sprite>
     <sprite>sprites\spr_pointer</sprite>
+    <sprites name="Main Char Sprites">
+      <sprite>sprites\spr_main_idle_lt</sprite>
+      <sprite>sprites\spr_main_idle_rt</sprite>
+      <sprite>sprites\spr_main_punch_atk_lt</sprite>
+      <sprite>sprites\spr_main_punch_atk_rt</sprite>
+      <sprite>sprites\spr_main_hit_lt</sprite>
+      <sprite>sprites\spr_main_hit_rt</sprite>
+      <sprite>sprites\spr_main_run_lt</sprite>
+      <sprite>sprites\spr_main_run_rt</sprite>
+      <sprite>sprites\spr_main_jump_lt</sprite>
+      <sprite>sprites\spr_main_jump_rt</sprite>
+      <sprite>sprites\spr_main_magic_lt</sprite>
+      <sprite>sprites\spr_main_magic_rt</sprite>
+    </sprites>
     <sprites name="Dialogue Sprites">
       <sprite>sprites\sBlue</sprite>
       <sprite>sprites\sShadow</sprite>
