@@ -5,11 +5,27 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_blkscreen</sprite>
+    <sprite>sprites\spr_collision</sprite>
+    <sprite>sprites\spr_pointer</sprite>
+  </sprites>
   <backgrounds name="background">
     <background>background\bg_street</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_startMenu.gml</script>
+    <script>scripts\state_machine_init.gml</script>
+  </scripts>
+  <objects name="objects">
+    <object>objects\obj_startMenu</object>
+    <objects name="Overall Game Controllers">
+      <object>objects\obj_collisioner</object>
+      <object>objects\obj_camera</object>
+      <object>objects\obj_gameSystem</object>
+    </objects>
+  </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
   </rooms>
