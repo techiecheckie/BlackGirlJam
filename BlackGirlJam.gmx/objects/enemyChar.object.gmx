@@ -28,7 +28,7 @@
             <string>/// Initialize variables for enemy
 
 // Fix char so it doesn't rotate when it hits corners.
-phy_fixed_rotation = true;
+//phy_fixed_rotation = true;
 
 // Set a speed that can be changed throughout the game.
 // Used for character movement speed.
@@ -58,31 +58,75 @@ sprite_index = spr_enemy_idle_lt;
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
-        <id>105</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_move_point</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>mChar.phy_position_x</string>
+            <kind>1</kind>
+            <string>/// Make char move toward player
+
+if (distance_to_object(mChar) &gt; 0.01) {
+    dir = sign(mChar.phy_position_x - phy_position_x) *.35;
+    
+    phy_position_x += dir*5;
+    phy_position_y = mChar.phy_position_y - 25;
+    
+    if (mChar.phy_position_x &gt; phy_position_x+.5) {
+        currIndex = spr_enemy_idle_rt;
+        sprite_index = spr_enemy_idle_rt;
+    }
+    
+    else {
+        currIndex = spr_enemy_idle_lt;
+        sprite_index = spr_enemy_idle_lt;
+    }
+}
+
+else {
+    dir = 0;
+    sprite_index = currIndex;
+    phy_position_y = mChar.phy_position_y - 25;
+}
+
+</string>
           </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_collisioner">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
           <argument>
-            <kind>0</kind>
-            <string>mChar.phy_position_y</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>3</string>
+            <kind>1</kind>
+            <string>/// Collide!
+phy_fixed_rotation = true;
+
+</string>
           </argument>
         </arguments>
       </action>
@@ -100,7 +144,7 @@ sprite_index = spr_enemy_idle_lt;
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>93,75</point>
-    <point>37,80</point>
+    <point>92,76</point>
+    <point>19,80</point>
   </PhysicsShapePoints>
 </object>

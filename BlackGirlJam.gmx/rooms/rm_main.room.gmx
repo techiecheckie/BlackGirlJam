@@ -56,6 +56,7 @@
     <instance objName="obj_collisioner" x="-13" y="56" name="inst_E566DD8F" locked="0" code="" scaleX="0.180000007152557" scaleY="6.85858583450317" colour="4294967295" rotation="0"/>
     <instance objName="obj_collisioner" x="1020" y="53" name="inst_481BC4D7" locked="0" code="" scaleX="0.100000001490116" scaleY="6.71717166900635" colour="4294967295" rotation="0"/>
     <instance objName="mChar" x="96" y="526" name="inst_D24FBDCF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="enemyChar" x="919" y="526" name="inst_02A6C4AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
