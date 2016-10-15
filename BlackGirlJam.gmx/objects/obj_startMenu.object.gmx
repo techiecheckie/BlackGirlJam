@@ -30,11 +30,12 @@
 //originally this added a specific font from a spriteset
 //we will make it gt the value of the textbox font we want to use as default instead
 //global.fnt_textbox=font_add_sprite(spr_fontmain,ord(" "),1,1);
-global.fnt_textbox=fnt_wizardsManse20;
+/*global.fnt_textbox=fnt_wizardsManse20;*/
 // The following stores the icons for the start menu!
 // move is an array of menu options, move[i] is the ith location in the array.
 menu[0] = "Press Enter to Begin";
-//menu[1] = "Exit Game";
+//menu[1] = "Credits";
+//menu[2] = "Exit Game";
 
 // Declare the amount of vertical space between menu items.
 vertSpace = 50;
@@ -65,6 +66,11 @@ cursorPos = 0; // move[cursorPos] returns the item the cursor is pointing to.
           <argument>
             <kind>1</kind>
             <string>/// Code to move up and down the menu.
+
+    /*var move;
+    move += max(keyboard_check_released(vk_down), 0);
+    move -= max(keyboard_check_released(vk_up), 0); 
+    */
 
 //if(state_stepFuncOK(global.state)) {
     var select;
@@ -99,9 +105,10 @@ cursorPos = 0; // move[cursorPos] returns the item the cursor is pointing to.
             <kind>1</kind>
             <string>// Draw the start menu
 
+draw_set_color(c_purple);
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
-draw_set_font(fnt_codersCrux);
+//draw_set_font(fnt_codersCrux);
 //draw_set_color(c_white);
 
 draw_text(x + 16 + vertSpace, y, string(menu[0]));
