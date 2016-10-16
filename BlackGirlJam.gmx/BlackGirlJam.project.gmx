@@ -65,6 +65,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_startMenu</object>
+    <object>objects\obj_timer</object>
     <objects name="Overall Game Controllers">
       <object>objects\obj_collisioner</object>
       <object>objects\obj_camera</object>
