@@ -84,6 +84,7 @@
   <rooms name="rooms">
     <room>rooms\rm_start</room>
     <room>rooms\rm_main</room>
+    <room>rooms\rm_credits</room>
     <room>rooms\rm_dialogueDemo</room>
   </rooms>
   <help>
