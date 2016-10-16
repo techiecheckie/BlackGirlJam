@@ -1,6 +1,23 @@
 // Control the start menu items
 
-switch(cursorPos) {
+//What happens when you click the menu
+switch (mpos)
+{
+    case 0:
+    {
+        room_goto_next();
+        break;
+    }
+    case 1:
+    {
+        room_goto(rm_credits);
+        break;
+    }
+    case 2: game_end(); break; 
+    default: break;
+}
+
+/*switch(cursorPos) {
 
     // If Start Game, start the game.
     case 0: 
@@ -17,3 +34,4 @@ switch(cursorPos) {
     default: break;
 
 }
+*/

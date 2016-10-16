@@ -31,14 +31,19 @@
 //we will make it gt the value of the textbox font we want to use as default instead
 //global.fnt_textbox=font_add_sprite(spr_fontmain,ord(" "),1,1);
 /*global.fnt_textbox=fnt_wizardsManse20;*/
+
 // The following stores the icons for the start menu!
-// move is an array of menu options, move[i] is the ith location in the array.
+// Move is an array of menu options, move[i] is the ith location in the array.
 menu[0] = "Press Enter to Begin";
-//menu[1] = "Credits";
-//menu[2] = "Exit Game";
+menu[1] = "Credits";
+menu[2] = "Exit Game";
 
 // Declare the amount of vertical space between menu items.
-vertSpace = 50;
+//vertSpace = 50;
+space = 80;
+
+//Declare the initial menu/curor position
+mpos = 0;
 
 // Declare the index within the move array where the cursor should be.
 cursorPos = 0; // move[cursorPos] returns the item the cursor is pointing to.
@@ -67,11 +72,25 @@ cursorPos = 0; // move[cursorPos] returns the item the cursor is pointing to.
             <kind>1</kind>
             <string>/// Code to move up and down the menu.
 
-    /*var move;
-    move += max(keyboard_check_released(vk_down), 0);
-    move -= max(keyboard_check_released(vk_up), 0); 
-    */
+//How to move about the menu
+var move = 0;
+move -= max(keyboard_check_released(vk_up), keyboard_check_pressed(ord("W")), 0); 
+move += max(keyboard_check_released(vk_down), keyboard_check_pressed(ord("S")), 0);
+    
+//Make sure we stay within length of menu
+if (move != 0) {
 
+    mpos += move;
+    if (mpos &lt; 0) mpos = array_length_1d(menu) -1;
+    if (mpos &gt; array_length_1d(menu) -1) mpos = 0;
+}    
+
+//How to select on the menu
+var push;
+push = max(keyboard_check_released(vk_enter), keyboard_check_released(vk_space), 0);
+if (push == 1) scr_startMenu();
+
+/*
 //if(state_stepFuncOK(global.state)) {
     var select;
     select = max(keyboard_check_released(vk_enter), 0);
@@ -81,6 +100,7 @@ cursorPos = 0; // move[cursorPos] returns the item the cursor is pointing to.
        //state_setNextState(state_stateMachineHandler, GAME_STATE.IDLE); 
     }
 //}
+*/
 </string>
           </argument>
         </arguments>
@@ -105,7 +125,23 @@ cursorPos = 0; // move[cursorPos] returns the item the cursor is pointing to.
             <kind>1</kind>
             <string>// Draw the start menu
 
-draw_set_color(c_purple);
+//Basic appearance of the menu
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+draw_set_font(fntInfo);
+draw_set_color(c_white);
+
+//Make the menu text show with proper spacing
+var m;
+for (m = 0; m &lt; array_length_1d(menu); m += 1)
+{
+    draw_text(x + space, y + (m * space), string(menu[m]))
+}
+
+//What sprite will show
+draw_sprite(sprite_index, 0, x + 16, y + mpos * space);
+
+/*draw_set_color(c_purple);
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 //draw_set_font(fnt_codersCrux);
@@ -113,7 +149,7 @@ draw_set_valign(fa_middle);
 
 draw_text(x + 16 + vertSpace, y, string(menu[0]));
 
-draw_sprite(sprite_index, 0, x + 16, y - 16 + (cursorPos * vertSpace));
+draw_sprite(sprite_index, 0, x + 16, y - 16 + (cursorPos * vertSpace)); */
 </string>
           </argument>
         </arguments>
