@@ -49,6 +49,10 @@
     <script>scripts\scr_startMenu.gml</script>
     <scripts name="State Machine Scripts">
       <script>scripts\state_machine_init.gml</script>
+      <script>scripts\state_mChar_idle.gml</script>
+      <script>scripts\state_mChar_run.gml</script>
+      <script>scripts\state_mChar_atk.gml</script>
+      <script>scripts\state_mChar_air.gml</script>
     </scripts>
     <scripts name="Dialogue Scripts">
       <script>scripts\dialogue.gml</script>
@@ -75,6 +79,7 @@
     </objects>
     <object>objects\mChar</object>
     <object>objects\enemyChar</object>
+    <object>objects\obj_text</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>

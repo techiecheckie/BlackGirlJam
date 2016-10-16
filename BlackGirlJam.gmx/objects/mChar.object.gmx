@@ -33,10 +33,7 @@ global.mname = "Jazmin"
 global.lname = "Jones"
 
 // Maximum number of enemies
-global.maxEnemies = 4;
-
-// Print the character's name to the console upon char creation.
-show_debug_message(global.fname + " " + global.mname + " " + global.lname);
+global.maxEnemies = 1;
 
 // Fix char so it doesn't rotate when it hits corners.
 phy_fixed_rotation = true;
@@ -60,6 +57,165 @@ sprite_index = spr_main_idle_rt;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// State Machine Setup
+
+// Set up state machine
+state_machine_init();
+
+// Set up states
+state_create("Idle", state_mChar_idle);
+state_create("Run", state_mChar_run);
+state_create("Atk", state_mChar_atk);
+state_create("Air", state_mChar_air);
+//state_create("Hurt", state_mChar_hurt);
+
+state_init("Idle");
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Controls
+
+//Directions
+up_held = false;
+down_held = false;
+left_held = false;
+right_held = false;
+
+//Mobility
+atk_pressed = false;
+
+jump_pressed = false;
+jump_held = false;
+jump_released = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Other Crap
+
+///Properties
+grav=.25;
+max_grav=10;
+stick_to_ground=false;
+
+slide_factor=2;
+
+walk_max=2;
+walk_accel=.1;
+run_max=4;
+run_accel=.1;
+//Air Control
+air_control_enabled=true;
+air_x_accel=walk_accel; //How easy is it to move in the air.
+jump_strength=5;
+jump_hold_limit=15;
+
+
+//General Helpers
+timer=0;
+
+scale=1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy state data structures
+
+state_cleanup();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>state_update();
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -78,8 +234,44 @@ sprite_index = spr_main_idle_rt;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Move the character
+            <string>///Read Controls
 
+//Directions
+up_held = keyboard_check(vk_up);
+down_held = keyboard_check(vk_down);
+left_held = keyboard_check(vk_left);
+right_held = keyboard_check(vk_right);
+
+//Mobility
+jump_pressed = keyboard_check_pressed(vk_up);
+jump_held = keyboard_check(vk_up);
+jump_released = keyboard_check_released(vk_up);
+
+//Atk
+atk_pressed = keyboard_check_pressed(vk_space);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Move the character
+state_execute();
+/*
 if (keyboard_check_pressed(vk_left)) {
     currIndex = spr_main_idle_lt;
     sprite_index = spr_main_idle_lt;
@@ -95,7 +287,7 @@ else if (keyboard_check_pressed(vk_right)) {
 else if (! (keyboard_check(vk_left) || keyboard_check(vk_right))) {
     spd = 0;
 }
-
+*/
 /*if (keyboard_check_pressed(vk_space)) {
     if (currIndex == spr_main_idle_rt) {
         spd = 0;
@@ -106,7 +298,7 @@ else if (! (keyboard_check(vk_left) || keyboard_check(vk_right))) {
         sprite_index = spr_main_punch_atk_lt;
     }
 }*/
-
+/*
 if (spd &lt; 0) {
    currIndex = spr_main_idle_lt;
    sprite_index = spr_main_run_lt;
@@ -122,6 +314,7 @@ else if (spd &gt; 0){
 else {
     sprite_index = currIndex;
 }
+*/
 </string>
           </argument>
         </arguments>
@@ -172,6 +365,37 @@ phy_fixed_rotation = true;
             <string>/// Collide!
 phy_fixed_rotation = true;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// End Animation
+if (sprite_index == spr_main_punch_atk_rt) {
+    sprite_index = spr_main_idle_rt;
+    state_switch("Idle");
+}
+else if (sprite_index == spr_main_punch_atk_lt) {
+    sprite_index = spr_main_idle_rt;
+    state_switch("Idle");
+}
 </string>
           </argument>
         </arguments>

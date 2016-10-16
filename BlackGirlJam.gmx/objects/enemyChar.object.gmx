@@ -41,6 +41,7 @@ img_spd = .1;
 image_speed = .1;
 
 // Determine what side of the screen we're coming in from
+/*
 phy_position_y = mChar.phy_position_y;
 if (!irandom(1)) {
     phy_position_x = -160;
@@ -48,12 +49,17 @@ if (!irandom(1)) {
 else { 
     phy_position_x = 760; 
 }
+*/
 
 // Index of the sprite used for this object.
 currIndex = spr_enemy_idle_lt;
 
 sprite_index = spr_enemy_idle_lt;
 
+// Have I been hit???
+hit = 0;
+
+show_debug_message("enemyChar created.");
 </string>
           </argument>
         </arguments>
