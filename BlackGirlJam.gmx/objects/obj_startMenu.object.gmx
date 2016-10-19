@@ -128,7 +128,7 @@ if (push == 1) scr_startMenu();
 //Basic appearance of the menu
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
-draw_set_font(fntInfo);
+draw_set_font(fntDialogue);
 draw_set_color(c_white);
 
 //Make the menu text show with proper spacing

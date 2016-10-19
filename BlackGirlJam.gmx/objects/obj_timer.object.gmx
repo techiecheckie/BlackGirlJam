@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Initialize timer variables
 
-myTime = 20.0
+myTime = 175.0
 </string>
           </argument>
         </arguments>
@@ -86,9 +86,11 @@ showTime = ceil(myTime)
             <kind>1</kind>
             <string>///Timer countdown text
 
-draw_set_font(fntInfo)
-draw_set_color(c_white)
-draw_text(x, y, "Time Left: " + string(showTime))
+draw_set_font(fntDialogue);
+draw_set_color(c_white);
+draw_set_halign(fa_middle);
+draw_set_valign(fa_middle);
+draw_text(x, y, "Time Left: " + string(showTime));
 </string>
           </argument>
         </arguments>

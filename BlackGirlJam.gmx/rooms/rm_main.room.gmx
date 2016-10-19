@@ -4,7 +4,7 @@
   <width>1024</width>
   <height>768</height>
   <vsnap>32</vsnap>
-  <hsnap>1</hsnap>
+  <hsnap>32</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -51,16 +51,17 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_collisioner" x="-25" y="93" name="inst_6D90C690" locked="0" code="" scaleX="10.7600002288818" scaleY="0.119999997317791" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collisioner" x="-60" y="588" name="inst_B614E4FF" locked="0" code="" scaleX="10.9899997711182" scaleY="0.170000001788139" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collisioner" x="-13" y="56" name="inst_E566DD8F" locked="0" code="" scaleX="0.180000007152557" scaleY="6.85858583450317" colour="4294967295" rotation="0"/>
-    <instance objName="obj_collisioner" x="1020" y="53" name="inst_481BC4D7" locked="0" code="" scaleX="0.100000001490116" scaleY="6.71717166900635" colour="4294967295" rotation="0"/>
-    <instance objName="mChar" x="96" y="526" name="inst_D24FBDCF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="enemyChar" x="919" y="526" name="inst_02A6C4AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_timer" x="467" y="41" name="inst_D16788AB" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="448" y="544" name="inst_D5AFEF08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="32" y="736" name="inst_84E57659" locked="0" code="" scaleX="31" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="-4" y="627" name="inst_7D6471C8" locked="0" code="" scaleX="32.125" scaleY="0.419354826211929" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="-32" y="96" name="inst_56C43965" locked="0" code="" scaleX="1" scaleY="17" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1024" y="96" name="inst_B334DE9B" locked="0" code="" scaleX="1" scaleY="17" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="-32" y="64" name="inst_5AE87E87" locked="0" code="" scaleX="34" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_timer" x="489" y="41" name="inst_C6CC89D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy" x="832" y="544" name="inst_DE101188" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
-  <PhysicsWorld>-1</PhysicsWorld>
+  <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>
   <PhysicsWorldRight>1024</PhysicsWorldRight>

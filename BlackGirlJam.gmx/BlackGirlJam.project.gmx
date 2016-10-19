@@ -9,7 +9,6 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_blkscreen</sprite>
-    <sprite>sprites\spr_collision</sprite>
     <sprite>sprites\spr_pointer</sprite>
     <sprites name="Main Char Sprites">
       <sprite>sprites\spr_main_idle_lt</sprite>
@@ -20,10 +19,15 @@
       <sprite>sprites\spr_main_hit_rt</sprite>
       <sprite>sprites\spr_main_run_lt</sprite>
       <sprite>sprites\spr_main_run_rt</sprite>
-      <sprite>sprites\spr_main_jump_lt</sprite>
-      <sprite>sprites\spr_main_jump_rt</sprite>
       <sprite>sprites\spr_main_magic_lt</sprite>
       <sprite>sprites\spr_main_magic_rt</sprite>
+      <sprite>sprites\spr_main_air_lt</sprite>
+      <sprite>sprites\spr_main_air_rt</sprite>
+      <sprite>sprites\spr_main_jump_lt</sprite>
+      <sprite>sprites\spr_main_jump_rt</sprite>
+      <sprite>sprites\spr_main_land_lt</sprite>
+      <sprite>sprites\spr_main_land_rt</sprite>
+      <sprite>sprites\spr_main_mask</sprite>
     </sprites>
     <sprites name="Dialogue Sprites">
       <sprite>sprites\sBlue</sprite>
@@ -34,11 +38,15 @@
     <sprites name="Enemy Sprites">
       <sprite>sprites\spr_enemy_idle_lt</sprite>
       <sprite>sprites\spr_enemy_idle_rt</sprite>
+      <sprite>sprites\spr_enemy_run_lt</sprite>
+      <sprite>sprites\spr_enemy_run_rt</sprite>
       <sprite>sprites\spr_enemy_hit_lt</sprite>
       <sprite>sprites\spr_enemy_hit_rt</sprite>
-      <sprite>sprites\spr_enemy_atk_lt</sprite>
-      <sprite>sprites\spr_enemy_atk_rt</sprite>
+      <sprite>sprites\spr_enemy_punch_atk_lt</sprite>
+      <sprite>sprites\spr_enemy_punch_atk_rt</sprite>
+      <sprite>sprites\spr_enemy_mask</sprite>
     </sprites>
+    <sprite>sprites\wall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_street</background>
@@ -49,15 +57,20 @@
     <script>scripts\scr_startMenu.gml</script>
     <scripts name="State Machine Scripts">
       <script>scripts\state_machine_init.gml</script>
-      <script>scripts\state_mChar_idle.gml</script>
-      <script>scripts\state_mChar_run.gml</script>
-      <script>scripts\state_mChar_atk.gml</script>
-      <script>scripts\state_mChar_air.gml</script>
+      <script>scripts\handleCollision.gml</script>
+      <script>scripts\state_main_atk.gml</script>
+      <script>scripts\state_main_move.gml</script>
+      <script>scripts\state_enemy_chase.gml</script>
+      <script>scripts\state_enemy_atk.gml</script>
+      <script>scripts\state_main_hit.gml</script>
+      <script>scripts\state_enemy_hit.gml</script>
+      <script>scripts\state_enemy_dead.gml</script>
+      <script>scripts\state_enemy_rest.gml</script>
+      <script>scripts\state_main_rest.gml</script>
     </scripts>
     <scripts name="Dialogue Scripts">
       <script>scripts\dialogue.gml</script>
     </scripts>
-    <script>scripts\scr_uselessRN.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntDialogue</font>
@@ -65,9 +78,10 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_startMenu</object>
+    <object>objects\obj_player</object>
+    <object>objects\obj_wall</object>
     <object>objects\obj_timer</object>
     <objects name="Overall Game Controllers">
-      <object>objects\obj_collisioner</object>
       <object>objects\obj_camera</object>
       <object>objects\obj_gameSystem</object>
     </objects>
@@ -78,9 +92,7 @@
       <object>objects\oGreen</object>
       <object>objects\oDialogue</object>
     </objects>
-    <object>objects\mChar</object>
-    <object>objects\enemyChar</object>
-    <object>objects\obj_text</object>
+    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
